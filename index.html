@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engy International - Premium Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+       * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #1a2a3a;
+    --secondary: #3498db;
+    --accent: #e74c3c;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --success: #27ae60;
+    --gold: #f1c40f;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    --gradient: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%);
+    --glass: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    background: url('engybackground.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--light);
+    line-height: 1.7;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 42, 58, 0.85);
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary), var(--success));
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.ceo-container {
+    flex: 0 0 20%;
+    min-width: 180px;
+    max-width: 240px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.ceo-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--secondary);
+    box-shadow: 0 0 25px rgba(52, 152, 219, 0.6);
+    transition: var(--transition);
+}
+
+.ceo-container:hover .ceo-image {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(52, 152, 219, 0.8);
+}
+
+.title-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+h1 {
+    font-size: 3.2rem;
+    margin-bottom: 10px;
+    color: var(--light);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to right, var(--secondary), var(--success));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--secondary);
+    border-radius: 2px;
+}
+
+.tagline {
+    font-size: 1.3rem;
+    color: #bdc3c7;
+    max-width: 600px;
+    margin: 20px auto 15px;
+    font-weight: 300;
+}
+
+.highlight {
+    color: var(--gold);
+    font-weight: 500;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.service-category {
+    background: var(--glass);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(203, 209, 211, 0.12);
+    position: relative;
+}
+
+.service-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--secondary), var(--success));
+}
+
+.service-category:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.category-header {
+    background: rgba(44, 62, 80, 0.7);
+    padding: 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.category-header:hover {
+    background: rgba(44, 62, 80, 0.85);
+}
+
+.category-header i {
+    transition: transform 0.4s ease;
+    color: var(--secondary);
+}
+
+.category-header.active i {
+    transform: rotate(180deg);
+}
+
+.service-items {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.service-item {
+    padding: 18px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.service-item:last-child {
+    border-bottom: none;
+}
+
+.service-item:hover {
+    background: rgba(52, 152, 219, 0.15);
+    padding-left: 30px;
+}
+
+.service-item i {
+    margin-right: 15px;
+    color: var(--secondary);
+    font-size: 1.3rem;
+    min-width: 24px;
+    text-align: center;
+}
+
+.service-item::after {
+    content: '→';
+    position: absolute;
+    right: 25px;
+    color: rgba(255, 255, 255, 0.3);
+    transition: var(--transition);
+}
+
+.service-item:hover::after {
+    color: var(--secondary);
+    right: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0 30px;
+    margin-top: 40px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary), var(--success));
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+.contact-card {
+    background: var(--glass);
+    padding: 30px 25px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--secondary);
+}
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: rgba(52, 152, 219, 0.12);
+}
+
+.contact-card h3 {
+    margin-bottom: 20px;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1.5rem;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #25D366;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: var(--transition);
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+    gap: 10px;
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.whatsapp-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: width 0.5s ease;
+    z-index: -1;
+}
+
+.whatsapp-btn:hover {
+    background: #128C7E;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-btn:hover::before {
+    width: 100%;
+}
+
+.copyright {
+    margin-top: 40px;
+    color: #95a5a6;
+    font-size: 1rem;
+    padding: 0 20px;
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 15s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .ceo-container {
+        flex: 0 0 30%;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .logo-section {
+        gap: 30px;
+    }
+    
+    .ceo-container {
+        flex: 0 0 40%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.9rem;
+    }
+    
+    .category-header {
+        font-size: 1.3rem;
+        padding: 18px;
+    }
+    
+    .tagline {
+        font-size: 1.1rem;
+    }
+    
+    .ceo-container {
+        flex: 0 0 60%;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <div class="ceo-container">
+                    <img src="engy.jpg" alt="CEO of Engy International" class="ceo-image">
+                </div>
+                <div class="title-section">
+                    <h1>ENGY INTERNATIONAL</h1>
+                    <p class="tagline">Premium services with <span class="highlight">guaranteed excellence</span> and professional expertise</p>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="services-container">
+                <div class="service-category">
+                    <div class="category-header" onclick="toggleServices(this)">
+                        <span><i class="fas fa-print"></i> CBT & GRAPHICS PRO</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="service-items">
+                        <div class="service-item" onclick="contactWhatsApp('Banners')">
+                            <i class="fas fa-computer"></i> CBT Training
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('Banners')">
+                            <i class="fas fa-image"></i> Banners
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('Graphics Design')">
+                            <i class="fas fa-palette"></i> Graphics
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('Colour Printing')">
+                            <i class="fas fa-print"></i> Colour Printing
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('ID Card Printing')">
+                            <i class="fas fa-id-card"></i> ID Card Printing
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-category">
+                    <div class="category-header" onclick="toggleServices(this)">
+                        <span><i class="fas fa-graduation-cap"></i> EDUCATIONAL CONSULTANCY</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="service-items">
+                        <div class="service-item" onclick="contactWhatsApp('NYSC Registration')">
+                            <i class="fas fa-passport"></i> NYSC Registration
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('JAMB Registration')">
+                            <i class="fas fa-book"></i> JAMB Registration
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('WAEC Registration')">
+                            <i class="fas fa-certificate"></i> WAEC Registration
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('NECO Registration')">
+                            <i class="fas fa-certificate"></i> NECO Registration
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('Tutorial Services')">
+                            <i class="fas fa-chalkboard-teacher"></i> Tutorial Services
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech & Financial Services -->
+<div class="service-category">
+    <div class="category-header" onclick="toggleServices(this)">
+        <span><i class="fas fa-laptop-code"></i> TECH & FINANCIAL SERVICES</span>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="service-items">
+        <div class="service-item" onclick="contactWhatsApp('Forex Training & Trading')">
+            <i class="fas fa-chart-line"></i> Forex Training & Trading
+        </div>
+        <div class="service-item" onclick="contactWhatsApp('Bitcoin Trading & Training')">
+            <i class="fab fa-bitcoin"></i> Bitcoin Training & Trading
+        </div>
+        <div class="service-item" onclick="contactWhatsApp('Website Development')">
+            <i class="fas fa-globe"></i> Website Development
+        </div>
+        <div class="service-item" onclick="contactWhatsApp('Banners')">
+                            <i class="fas fa-computer"></i> Computer Training
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('Banners')">
+                            <i class="fas fa-computer"></i> Computer Engineering
+                        </div>
+    </div>
+</div>
+
+                <!-- Legal & Certification Services -->
+<div class="service-category">
+    <div class="category-header" onclick="toggleServices(this)">
+        <span><i class="fas fa-file-signature"></i> LEGAL & CERTIFICATION SERVICES</span>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="service-items">
+        <div class="service-item" onclick="contactWhatsApp('Birth Certificate')">
+            <i class="fas fa-baby"></i> Birth Certificate
+        </div>
+        <div class="service-item" onclick="contactWhatsApp('Sworn Affidavit')">
+            <i class="fas fa-file-signature"></i> Sworn Affidavit
+        </div>
+        <div class="service-item" onclick="contactWhatsApp('State of Origin Certificate')">
+            <i class="fas fa-flag"></i> State of Origin
+        </div>
+        <div class="service-item" onclick="contactWhatsApp('Local Government Certificate')">
+            <i class="fas fa-landmark"></i> Local Govt of Origin
+        </div>
+    </div>
+</div>
+
+                
+                <div class="service-category">
+                    <div class="category-header" onclick="toggleServices(this)">
+                        <span><i class="fas fa-copy"></i>GENERAL PRINTING</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="service-items">
+                        <div class="service-item" onclick="contactWhatsApp('Photocopy Services')">
+                            <i class="fas fa-copy"></i> Photocopy Services
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('Laminating Services')">
+                            <i class="fas fa-layer-group"></i> Laminating Services
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('Document Printing')">
+                            <i class="fas fa-file-alt"></i> Document Printing
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('Form Printing')">
+                            <i class="fas fa-file-contract"></i> Form Printing
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-category">
+                    <div class="category-header" onclick="toggleServices(this)">
+                        <span><i class="fas fa-school"></i> TUTORIAL CENTRE</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="service-items">
+                        <div class="service-item" onclick="contactWhatsApp('WAEC Tutorial')">
+                            <i class="fas fa-certificate"></i> WAEC Tutorial
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('NECO Tutorial')">
+                            <i class="fas fa-certificate"></i> NECO Tutorial
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('JAMB Tutorial')">
+                            <i class="fas fa-book"></i> JAMB Tutorial
+                        </div>
+                        <div class="service-item" onclick="contactWhatsApp('GCE Tutorial')">
+                            <i class="fas fa-graduation-cap"></i> GCE Tutorial
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+       
+        <footer>
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3><i class="fab fa-whatsapp"></i> Engy International</h3>
+                    <p>For all service inquiries and premium support</p>
+                    <a href="https://wa.me/2349160170847" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Message on WhatsApp
+                    </a>
+                </div>
+            </div>
+            <p class="copyright">© 2023 Engy International. All rights reserved. Excellent services guaranteed.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleServices(element) {
+            const parent = element.parentElement;
+            const services = parent.querySelector('.service-items');
+            const isActive = element.classList.contains('active');
+            
+            // Close all open service items
+            document.querySelectorAll('.category-header').forEach(header => {
+                header.classList.remove('active');
+                header.parentElement.querySelector('.service-items').style.maxHeight = null;
+            });
+            
+            // Open clicked one if it wasn't active
+            if (!isActive) {
+                element.classList.add('active');
+                services.style.maxHeight = services.scrollHeight + "px";
+            }
+        }
+        
+        function contactWhatsApp(service) {
+            const category = service.includes('Tutorial') ? 'TUTORIAL CENTRE' : 
+                             service.includes('Print') ? 'CBT & GRAPHICS PRO' :
+                             service.includes('Copy') ? 'ENERAL PRINTI' : 'EDU CONSULTANCY';
+            
+            const message = `Hello Engy International! I want to do '${service}' for ${category}. Please provide more information.`;
+            const encodedMessage = encodeURIComponent(message);
+            window.location.href = `https://wa.me/2349160170847?text=${encodedMessage}`;
+        }
+        
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 8 + 2;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = 15 + Math.random() * 10;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize animations and effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create particles
+            createParticles();
+            
+            // Open all categories initially
+            setTimeout(() => {
+                document.querySelectorAll('.category-header').forEach(header => {
+                    header.classList.add('active');
+                    const services = header.parentElement.querySelector('.service-items');
+                    services.style.maxHeight = services.scrollHeight + "px";
+                });
+            }, 800);
+        });
+    </script>
+</body>
+</html>
