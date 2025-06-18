@@ -473,7 +473,7 @@ footer::before {
                 </div>
                 <div class="title-section">
                     <h1>ENGY INTERNATIONAL</h1>
-                    <p class="tagline">Premium services with <span class="highlight">guaranteed excellence</span> and professional expertise</p>
+                    <p class="tagline">Premium services with <span class="highlight">guaranteed excellence</span> and professional expertise. <span class="highlight">Click</span> on any of our services below to chat with us.</p>
                 </div>
             </div>
         </header>
@@ -572,6 +572,9 @@ footer::before {
         <div class="service-item" onclick="contactWhatsApp('Local Government Certificate')">
             <i class="fas fa-landmark"></i> Local Govt of Origin
         </div>
+         <div class="service-item" onclick="contactWhatsApp('National Identification Number')">
+            <i class="fas fa-landmark"></i> National Identification Number (NIN)
+        </div>
     </div>
 </div>
 
@@ -586,7 +589,7 @@ footer::before {
                             <i class="fas fa-copy"></i> Photocopy Services
                         </div>
                         <div class="service-item" onclick="contactWhatsApp('Laminating Services')">
-                            <i class="fas fa-layer-group"></i> Laminating Services
+                            <i class="fas fa-layer-group"></i> Lamination Services
                         </div>
                         <div class="service-item" onclick="contactWhatsApp('Document Printing')">
                             <i class="fas fa-file-alt"></i> Document Printing
@@ -594,6 +597,10 @@ footer::before {
                         <div class="service-item" onclick="contactWhatsApp('Form Printing')">
                             <i class="fas fa-file-contract"></i> Form Printing
                         </div>
+                        <div class="service-item" onclick="contactWhatsApp('CV Printing')">
+                            <i class="fas fa-file-contract"></i> CV Printing
+                        </div>
+                        
                     </div>
                 </div>
                 
@@ -615,6 +622,9 @@ footer::before {
                         <div class="service-item" onclick="contactWhatsApp('GCE Tutorial')">
                             <i class="fas fa-graduation-cap"></i> GCE Tutorial
                         </div>
+                         <div class="service-item" onclick="contactWhatsApp('IJMB / JUPEB Tutorial')">
+                            <i class="fas fa-graduation-cap"></i> IJMB / JUPEB Tutorial
+                        </div>
                         
                     </div>
                 </div>
@@ -633,6 +643,8 @@ footer::before {
                 </div>
             </div>
             <p class="copyright">© 2023 Engy International. All rights reserved. Excellent services guaranteed.</p>
+             Developed by: Nova Terra Software Solutions Ltd.
+             </div>
         </footer>
     </div>
 
@@ -658,9 +670,9 @@ footer::before {
         function contactWhatsApp(service) {
             const category = service.includes('Tutorial') ? 'TUTORIAL CENTRE' : 
                              service.includes('Print') ? 'CBT & GRAPHICS PRO' :
-                             service.includes('Copy') ? 'ENERAL PRINTI' : 'EDU CONSULTANCY';
+                             service.includes('Copy') ? 'GENERAL PRINTING' : 'EDUCATIONAL CONSULTANCY';
             
-            const message = `Hello Engy International! I want to do '${service}' for ${category}. Please provide more information.`;
+            const message = `Hello Engy International! I need your service for '${service}'. Please provide more information.`;
             const encodedMessage = encodeURIComponent(message);
             window.location.href = `https://wa.me/2349160170847?text=${encodedMessage}`;
         }
